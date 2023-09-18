@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+
+<meta charset="utf-8" />
+
+<title>filemgr</title>
+
+<script src="//127.0.0.1:35729/livereload.js"></script>
+
+<link rel="stylesheet" href="/static/css/main.css"/>
+
+</head>
+<body>
+
+<a href="/">reload</a>
+
+<form action="/upload" method="post" enctype="multipart/form-data" class="js-dnd-form">
+    <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+
+<p>
+    <label for="foo-bar-baz" class="dnd js-dnd__target">
+        <input type="file" name="foo[bar][baz][]" id="foo-bar-baz" multiple accept="image/*" />
+        <span>Drop Your files here</span>
+    </label>
+</p>
+
+
+<button type="submit">submit</button>
+
+</form>
+
+<ul id="list" class="ls-dnd"></ul>
+
+<template>
+<div class="upload-item">
+	<progress class="upload-item__progress" value="0" max="1"></progress>
+	<span class="upload-item__perc"></span>
+	<span class="upload-item__ext"></span>
+	<span class="upload-item__mime"></span>
+	<span class="upload-item__size-loaded"></span>
+	<span class="upload-item__size-total"></span>
+	<ul class="upload-item__errors"></ul>
+	<span class="upload-item__done">Done!</span>
+	<button class="upload-item__abort">&Cross;</button>
+</div>
+</template>
+
+<script src="/static/js/app.js" defer></script>
+
+</body>
+</html>

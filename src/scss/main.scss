@@ -1,0 +1,117 @@
+html,
+body {
+	padding: 0;
+}
+
+body {
+	background: #eee;
+}
+
+.dnd {
+	display: block;
+	border: 0.25em dashed #ddd;
+	margin: 1em;
+	padding: 2em;
+
+	text-align: center;
+
+	cursor: pointer;
+
+	input {
+		position: absolute;
+		z-index: -1;
+		opacity: 0;
+	}
+
+	&:hover {
+		border-color: #aa0;
+	}
+
+	.x--dragover & {
+		border-color: #000;
+	}
+}
+
+.ls-dnd {
+	list-style: none;
+	padding: 0;
+
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1em;
+
+	>li {
+		border: 1px solid #bbb;
+	}
+}
+
+.upload-item {
+	display: grid;
+	grid: "perc progress size_loaded size_total abort"
+	"mime mime mime ext abort"
+	"errors errors errors errors errors"
+	"done done done done done" / 3em 1fr 4em 4em;
+	border: 1px solid #aaa;
+	text-align: center;
+	gap: 0.25em 0.5em;
+	padding: 0.5em;
+}
+
+.upload-item__perc {
+	grid-area: perc;
+
+	&::after {
+		content: '%';
+	}
+}
+
+.upload-item__progress {
+	grid-area: progress;
+	min-width: 4em;
+}
+
+.upload-item__ext {
+	grid-area: ext;
+	text-transform: uppercase;
+
+	&::before {
+		content: '.';
+	}
+}
+
+.upload-item__mime {
+	grid-area: mime;
+}
+
+.upload-item__size-loaded {
+	grid-area: size_loaded;
+}
+
+.upload-item__size-total {
+	grid-area: size_total;
+}
+
+.upload-item__abort {
+	grid-area: abort;
+}
+
+.upload-item__errors {
+	grid-area: errors;
+
+	list-style: none;
+
+	border: 2px solid currentColor;
+	color: #f00;
+	background: mix(#f00, #fff, 5%);
+	padding: 0.5em;
+	margin: 0;
+
+	&:empty {
+		display: none
+	}
+}
+
+.upload-item__done {
+	grid-area: done;
+	background: #0f0;
+}

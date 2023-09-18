@@ -1,0 +1,6 @@
+/.settings/
+/_tmp/
+/dist/static
+/node_modules/
+/.buildpath
+/.project
